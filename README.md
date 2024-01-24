@@ -1,0 +1,1 @@
+A python program to read mic input and display the detected pitch. Uses pyaudio to read input, aubio to discern pitch, and tkinter as a gui to display result.
