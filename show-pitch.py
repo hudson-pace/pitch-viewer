@@ -53,9 +53,9 @@ def step(prevLine):
   line = canvas.create_line(30, y, 470, y)
 
   if pitch > 0:
-    print(note, octave)
+    current_note_label.configure(text=f"{note}{octave}")
   else:
-    print("-")
+    current_note_label.configure(text="-")
 
   if running:
     window.after(1, lambda: step(line))
@@ -65,10 +65,16 @@ def stop():
   button.configure(text="start", command=start)
 
 window = tk.Tk()
+
+current_note_label = tk.Label(master=window, text="-")
+current_note_label.pack()
+
 canvas = tk.Canvas(master=window, width=500, height=400)
 canvas.pack()
+
 button = tk.Button(master=window, text="start", command=start)
 button.pack()
+
 window.mainloop()
 
 stream.stop_stream()
